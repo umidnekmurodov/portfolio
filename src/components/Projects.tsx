@@ -2,6 +2,7 @@ import { useScrollReveal } from '../hooks/useScrollReveal'
 
 interface Project {
   href: string
+  previewUrl: string
   coverClass: string
   coverLabel: string
   title: string
@@ -12,6 +13,7 @@ interface Project {
 const projects: Project[] = [
   {
     href: 'https://nexora-shop-app-rwpv.vercel.app',
+    previewUrl: 'https://image.thum.io/get/width/1200/crop/600/https://nexora-shop-app-rwpv.vercel.app',
     coverClass: 'cover-1',
     coverLabel: '<Nexora />',
     title: 'Nexora',
@@ -19,7 +21,8 @@ const projects: Project[] = [
     tags: ['React', 'TypeScript', 'Node.js'],
   },
   {
-    href: '#',
+    href: 'https://toyxona-three.vercel.app/',
+    previewUrl: 'https://image.thum.io/get/width/1200/crop/600/https://toyxona-three.vercel.app/',
     coverClass: 'cover-2',
     coverLabel: '<Toyxona />',
     title: "To'yxona",
@@ -47,6 +50,12 @@ function ProjectCard({ project }: { project: Project }) {
       ref={ref}
     >
       <div className={`project-cover ${project.coverClass}`}>
+        <img
+          className="project-preview"
+          src={project.previewUrl}
+          alt={`${project.title} saytining ko'rinishi`}
+          loading="lazy"
+        />
         <span className="cover-mono">{project.coverLabel}</span>
       </div>
       <div className="project-body">
